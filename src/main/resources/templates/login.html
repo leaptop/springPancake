@@ -13,19 +13,19 @@
       Unable to login. Check your username and password.
     </div>
     
-    <p>New here? Click 
-       <a th:href="@{/register}">here</a> to register.</p>
+    <p>Ещё не зарегистрированы? Нажмите 
+       <a th:href="@{/register}">здесь</a> для регистрации.</p>
     
     <!-- tag::thAction[] -->
     <form method="POST" th:action="@{/login}" id="loginForm">
     <!-- end::thAction[] -->
-      <label for="username">Username: </label>
+      <label for="username">Имя: </label>
       <input type="text" name="username"/><br/>
       
-      <label for="password">Password: </label>
+      <label for="password">Пароль: </label>
       <input type="password" name="password"/><br/>
       
-      <input type="submit" value="Login"/>
+      <input type="submit" value="Войти"/>
     </form>
   </body>
 </html>

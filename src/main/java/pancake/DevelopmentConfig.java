@@ -11,10 +11,14 @@ import pancake.data.IngredientRepository;
 import pancake.data.UserRepository;
 
 @Profile("!prod")
-@Configuration
+@Configuration /*эта аннотация говорит Спрингу о том, что данный класс является конфигурационным, он будет поставлять бины 
+в контекст приложения Спринг.
+*/
 public class DevelopmentConfig {
 
-  @Bean
+  @Bean/*Эта аннотация говорит о том, что данный метод возвращает объект, который будет возвращён как бин в контекст приложения. При этом 
+  по умолчанию ID бина будет таким же, как имя метода.
+  */
   public CommandLineRunner dataLoader(IngredientRepository repo,
         UserRepository userRepo, PasswordEncoder encoder) { // user repo for ease of testing with a built-in user
     return new CommandLineRunner() {

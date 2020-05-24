@@ -6,12 +6,12 @@
   </head>
   
   <body>
-    <h1>Welcome to...</h1>
+    <h1>Добро пожаловать в онлайн-блинную</h1>
     <img th:src="@{/images/PancakeCloud.png}"/>
     <form method="POST" th:action="@{/logout}" id="logoutForm">
-      <input type="submit" value="Logout"/>
+      <input type="submit" value="Выйти"/><!-- Logout -->
     </form>
     
-    <a th:href="@{/design}" id="design">Design a pancake</a>
+    <a th:href="@{/design}" id="design">Заказать блин</a>
   </body>
 </html>

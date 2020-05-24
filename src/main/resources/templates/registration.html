@@ -6,39 +6,39 @@
   </head>
   
   <body>
-    <h1>Register</h1>
+    <h1>Зарегистрируйтесь</h1>
     <img th:src="@{/images/PancakeCloud.png}"/>    
     
     <form method="POST" th:action="@{/register}" id="registerForm">
     
-        <label for="username">Username: </label>
+        <label for="username">Имя: </label>
         <input type="text" name="username"/><br/>
 
-        <label for="password">Password: </label>
+        <label for="password">Пароль: </label>
         <input type="password" name="password"/><br/>
 
-        <label for="confirm">Confirm password: </label>
+        <label for="confirm">Подтвердите пароль: </label>
         <input type="password" name="confirm"/><br/>
 
-        <label for="fullname">Full name: </label>
+        <label for="fullname">Полное имя: </label>
         <input type="text" name="fullname"/><br/>
     
-        <label for="street">Street: </label>
+        <label for="street">Улица, номер дома, квартиры: </label>
         <input type="text" name="street"/><br/>
     
-        <label for="city">City: </label>
+        <label for="city">Город: </label>
         <input type="text" name="city"/><br/>
     
-        <label for="state">State: </label>
+        <label for="state">Страна: </label>
         <input type="text" name="state"/><br/>
     
-        <label for="zip">Zip: </label>
+        <label for="zip">Индекс: </label>
         <input type="text" name="zip"/><br/>
     
-        <label for="phone">Phone: </label>
+        <label for="phone">Телефон: </label>
         <input type="text" name="phone"/><br/>
     
-        <input type="submit" value="Register"/>
+        <input type="submit" value="Зарегистрироваться"/>
     </form>
     
   </body>

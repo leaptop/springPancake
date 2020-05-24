@@ -8,7 +8,7 @@
   
   <body>
     <h1>Собери свой блин!</h1>
-    <h2>Голоден сегодня, <span th:text="${user.fullname}">NAME</span>?</h2>
+    <h2>Голодны сегодня, <span th:text="${user.fullname}">NAME</span>?</h2>
     <img th:src="@{/images/PancakeCloud.png}"/>
     
     <form method="POST" th:action="@{/logout}" id="logoutForm">
@@ -23,7 +23,7 @@
 
     <div class="grid">
       <div class="ingredient-group" id="wraps">
-      <h3>Designate your wrap:</h3>
+      <h3>Выберите тип блина:</h3>
       <div th:each="ingredient : ${wrap}">
         <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
         <span th:text="${ingredient.name}">INGREDIENT</span><br/>
@@ -31,7 +31,7 @@
       </div>
 
 	  <div class="ingredient-group" id="proteins">
-      <h3>Pick your protein:</h3>
+      <h3>Выберите мясо:</h3>
       <div th:each="ingredient : ${protein}">
         <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
         <span th:text="${ingredient.name}">INGREDIENT</span><br/>
@@ -39,7 +39,7 @@
       </div>
   
 	  <div class="ingredient-group" id="cheeses">
-      <h3>Choose your cheese:</h3>
+      <h3>Выберите сыр:</h3>
       <div th:each="ingredient : ${cheese}">
         <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
         <span th:text="${ingredient.name}">INGREDIENT</span><br/>
@@ -47,7 +47,7 @@
       </div>
         
 	  <div class="ingredient-group" id="veggies">
-      <h3>Determine your veggies:</h3>
+      <h3>Выберите овощи:</h3>
       <div th:each="ingredient : ${veggies}">
         <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
         <span th:text="${ingredient.name}">INGREDIENT</span><br/>
@@ -55,7 +55,7 @@
       </div>
       
 	  <div class="ingredient-group" id="sauces">
-      <h3>Select your sauce:</h3>
+      <h3>Выберите соус:</h3>
       <div th:each="ingredient : ${sauce}">
         <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
         <span th:text="${ingredient.name}">INGREDIENT</span><br/>
@@ -66,14 +66,14 @@
       <div>
 
 
-      <h3>Name your pancake creation:</h3>
+      <h3>Назовите ваше творение:</h3>
       <input type="text" th:field="*{name}"/>
       <span class="validationError"
             th:if="${#fields.hasErrors('name')}" 
             th:errors="*{name}">Name Error</span>
       <br/>
       
-      <button>Submit your pancake</button>
+      <button>Подтвердите</button>
       </div>
     </form>
   </body>
