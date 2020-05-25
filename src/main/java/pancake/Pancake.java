@@ -13,7 +13,9 @@ import javax.validation.constraints.Size;
 
 import lombok.Data;
 
-@Data
+@Data/*Эта аннотация нужна для того, чтобы биновские методы(hashCode(), get, set) создавались автоматически во время выполнения программы.
+
+*/
 @Entity
 public class Pancake {
 
@@ -22,13 +24,13 @@ public class Pancake {
   private Long id;
   
   @NotNull
-  @Size(min=5, message="Name must be at least 5 characters long")
+  @Size(min=5, message="Имя должно быть минимум из 5 символов")
   private String name;
   
   private Date createdAt;
 
   @ManyToMany(targetEntity=Ingredient.class)
-  @Size(min=1, message="You must choose at least 1 ingredient")
+  @Size(min=1, message="Нужно выбрать хотя бы один ингредиент")
   private List<Ingredient> ingredients;
 
   @PrePersist

@@ -26,8 +26,23 @@ import pancake.data.IngredientRepository;
 import pancake.data.PancakeRepository;
 import pancake.data.UserRepository;
 
+@Controller//сообщает, что данный класс является контроллером. Эта аннотация наследуется от @Component,
+//поэтому @ComponentScan работает с @Controller так же, как и просто с @Component. Когда @ComponentScan видит
+//аннотацию @Controller, она создаёт бин из этого помеченного java класса. Т.е. @Controller - тот же @Component,
+//но с дополнительными возможностями. Внутри контроллеров находятся методы. Обычно, (но не всегда) каждый метод
+//соответсвует одному URL. Обычно(но не всегда), методы возвращают строку (String) - название представления,
+//которое надо показать пользователю. Эта аннотация особо много и не делает. Её основнное назначение - 
+//идентифицировать класс как компонент для сканирования компонентов. Т.о. результатом сканирования будет создание 
+//объекта bean в контексте приложения Спринг.
+/*
+ * Если код такой:
 @Controller
-@RequestMapping("/design")
+@RequestMapping("/people")
+public class PersonController{
+То здесь для обращения к любому методу класса сначала надо добавлять префикс /people
+ */
+ 
+@RequestMapping("/design")//для работы этого класса адрес должен содержать /design. 
 @SessionAttributes("order")
 public class DesignPancakeController {
   

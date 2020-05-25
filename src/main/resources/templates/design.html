@@ -9,7 +9,7 @@
   <body>
     <h1>Собери свой блин!</h1>
     <h2>Голодны сегодня, <span th:text="${user.fullname}">NAME</span>?</h2>
-    <img th:src="@{/images/PancakeCloud.png}"/>
+    <img th:src="@{/images/PancakeCloud.png}"/><!-- Здесь th означает thymeleaf.   -->
     
     <form method="POST" th:action="@{/logout}" id="logoutForm">
       <input type="submit" value="Logout"/>
@@ -24,9 +24,13 @@
     <div class="grid">
       <div class="ingredient-group" id="wraps">
       <h3>Выберите тип блина:</h3>
-      <div th:each="ingredient : ${wrap}">
-        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
-        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      <div th:each="ingredient : ${wrap}"><!-- для каждого элемента с энамом типа wrap: создаю чекбокс -->
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" /><!-- Вытаскиваю имя. Здесь ingredients - поле класса
+        Pancake.  -->
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/><!-- INGREDIENT - это просто плейсхолдер. Когда шаблон передан 
+        в html, тело(плейсхолдер) элемента span будет заменено значением атрибута запроса сервлета, чей ключ  ingredient.name. span 
+        нужен для создания ярлыка.
+         -->
       </div>
       </div>
 

@@ -11,10 +11,15 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
-@Entity
+@Entity/*Эта аннотация  нужна, чтобы объявить данный класс сущностью JPA для 
+возможности добавления данного объекта в БД. При этом @Id - уникальный айдишник для этой БД.
+*/
 public class Ingredient {
   
-  @Id
+  @Id/*Эта аннотация указывает CrudRepository что брать как второй параметр при 
+  добавлении объекта  Ingredient  в репозиторий. В данном случает это строковое значение.
+  Этот айди - unit of persistence для интерфейса этого репозитория.
+  */
   private final String id;
   private final String name;
   private final Type type;

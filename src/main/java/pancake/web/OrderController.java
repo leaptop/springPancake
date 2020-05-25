@@ -39,7 +39,7 @@ public class OrderController {
   }
   // end::ordersForUser_paged_withHolder[]
 
-  @GetMapping("/current")
+  @GetMapping("/current")    //срабатывает во время вызова /current в адресной строке
   public String orderForm(@AuthenticationPrincipal User user,
       @ModelAttribute Order order) {
     if (order.getDeliveryName() == null) {

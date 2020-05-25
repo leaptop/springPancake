@@ -17,28 +17,29 @@ import pancake.data.UserRepository;
 public class DevelopmentConfig {
 
   @Bean/*Эта аннотация говорит о том, что данный метод возвращает объект, который будет возвращён как бин в контекст приложения. При этом 
-  по умолчанию ID бина будет таким же, как имя метода.
+  По умолчанию ID бина будет таким же, как имя метода.
   */
   public CommandLineRunner dataLoader(IngredientRepository repo,
-        UserRepository userRepo, PasswordEncoder encoder) { // user repo for ease of testing with a built-in user
+        UserRepository userRepo, PasswordEncoder encoder) { // user repo для простоты тестирования со встроеным пользователем
     return new CommandLineRunner() {
-      @Override
+      @Override//Эта аннотация говорит о том, что мы собираемся переопределить метод базового класса
       public void run(String... args) throws Exception {
-        repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
-        repo.save(new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
-        repo.save(new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));
-        repo.save(new Ingredient("CARN", "Carnitas", Type.PROTEIN));
-        repo.save(new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES));
-        repo.save(new Ingredient("LETC", "Lettuce", Type.VEGGIES));
-        repo.save(new Ingredient("CHED", "Cheddar", Type.CHEESE));
-        repo.save(new Ingredient("JACK", "Monterrey Jack", Type.CHEESE));
-        repo.save(new Ingredient("SLSA", "Salsa", Type.SAUCE));
-        repo.save(new Ingredient("SRCR", "Sour Cream", Type.SAUCE));
+        repo.save(new Ingredient("EGGS", "С яйцами", Type.WRAP));//в методе run сразу создаём список ингредиентов
+        repo.save(new Ingredient("VEGG", "Веганский", Type.WRAP));
+        repo.save(new Ingredient("CORN", "из кукрузной муки", Type.WRAP));
+        repo.save(new Ingredient("CHCK", "Курица", Type.PROTEIN));
+        repo.save(new Ingredient("BEEF", "Говядина", Type.PROTEIN));
+        repo.save(new Ingredient("TMTO", "Помидоры", Type.VEGGIES));
+        repo.save(new Ingredient("GREN", "Зелень", Type.VEGGIES));
+        repo.save(new Ingredient("CHED", "Чеддер", Type.CHEESE));
+        repo.save(new Ingredient("GAUD", "Гауда", Type.CHEESE));
+        repo.save(new Ingredient("BSHM", "Бешамель", Type.SAUCE));
+        repo.save(new Ingredient("SRCR", "Сметана", Type.SAUCE));
         
         
-        userRepo.save(new User("habuma", encoder.encode("password"), 
-            "Craig Walls", "123 North Street", "Cross Roads", "TX", 
-            "76227", "123-123-1234"));
+        userRepo.save(new User("username", encoder.encode("password"), //создал пользователя по умолчанию
+            "Wesley Snypes", "Иванова 45, 15", "Омск", "РФ", 
+            "345", "123-123-1234"));
       }
     };
   }

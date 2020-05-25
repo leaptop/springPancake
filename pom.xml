@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>sia</groupId>
-	<artifactId>taco-cloud</artifactId>
+	<artifactId>pancake-cloud</artifactId>
 	<version>0.0.5-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>jar</packaging><!-- Выбрал jar как тип итогового файла, т.к. это позволяет использовать проект как облачный микросервис. -->
 
-	<name>taco-cloud</name>
+	<name>pancake-cloud</name>
 	<description>Taco Cloud Example</description>
 
 	<parent>
@@ -113,7 +113,7 @@
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<artifactId>spring-boot-maven-plugin</artifactId><!-- Позволяет запускать приложение с помощью Мавен -->
 			</plugin>
 		</plugins>
 	</build>
